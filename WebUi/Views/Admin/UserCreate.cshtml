@@ -1,0 +1,75 @@
+@model UserCreateModel
+
+<h1 class="h3 m-3">Create User</h1>
+<hr />
+
+<form asp-controller="Admin" asp-action="UserCreate" method="post">
+<div class="row">
+    <div class="col-md-6">
+        
+            <div class="form-group">
+                <label asp-for="UserName">Username:</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FirstName">First Name:</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LastName">Last Name:</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password:</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email:</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="EmailConfirmed">Email Confirmed:</label>
+                <input asp-for="EmailConfirmed" type="checkbox" class="form-check-input" />
+                <span asp-validation-for="EmailConfirmed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsStripeCustomer">Create Stripe Customer:</label>
+                <input asp-for="IsStripeCustomer" type="checkbox" class="form-check-input" />
+                <span asp-validation-for="IsStripeCustomer" class="text-danger"></span>
+            </div>
+          
+        
+    </div>
+    <div class="col-md-6">
+            <div class="form-group">
+                <label class="h4">Select Roles:</label>
+                <select asp-for="SelectedRoles" asp-items="new SelectList(Model.AllRoles)" multiple class="form-control"></select>
+                <span asp-validation-for="SelectedRoles" class="text-danger"></span>
+            </div>
+            <div class="form-group"> 
+                <label class="h4">Select Profile Picture:</label>
+                @foreach (var picture in Model.AvailableProfilePictures)
+                {
+                    <div class="form-check">
+                        <input asp-for="SelectedProfilePicture" type="radio" value="@picture" id="@picture" class="form-check-input" />
+                        <label for="@picture" class="form-check-label img-fluid"><img src="~/img/@picture" alt="NewPP" width="80"></label>
+
+                    </div>
+                }
+                <span asp-validation-for="SelectedProfilePicture" class="text-danger"></span>
+            </div>
+
+
+    </div>
+    <button type="submit" class="btn btn-outline-primary btn-sm w-100 m-1">Create</button>
+</div>
+</form>

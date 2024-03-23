@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KokoMija</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="/img/Logo.png" />
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@700&family=Raleway&display=swap" rel="stylesheet">
+    @await RenderSectionAsync("Css", required: false)
+</head>
+<body  style="font-family: 'Agdasima', sans-serif;
+font-family: 'Raleway', sans-serif;">
+
+    @await Html.PartialAsync("_navbar")
+              @if (TempData["message"]!=null)
+          {
+            <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))" />
+          }
+    <div id="myDIV" class="container-fluid">
+
+
+        <main role="main" class="pb-3">
+          @RenderBody()
+        </main>
+        
+    </div>
+    
+<div id="kutu" class="navbar container-fluid mt-5">
+  <footer id="strong" class="py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <h5>KokoMija</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">Kraków - Polska</li>
+          <li class="nav-item mb-2">SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</li>
+          <li class="nav-item mb-2">UL. RYNEK GŁÓWNY 28, 31-010 KRAKÓW</li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>About</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a style="color: #FFFFFF; text-shadow: 0 0 4px white;" href="#" class="nav-link p-0">About Us</a></li>
+          <li class="nav-item mb-2"><a style="color: #FFFFFF; text-shadow: 0 0 4px white;" href="#" class="nav-link p-0">Privacy Policy</a></li>
+          <li class="nav-item mb-2"><a style="color: #FFFFFF; text-shadow: 0 0 4px white;" href="#" class="nav-link p-0">Business Client</a></li>
+          <li class="nav-item mb-2"><a style="color: #FFFFFF; text-shadow: 0 0 4px white;" href="#" class="nav-link p-0">Complaints & Suggestions</a></li>
+          <li class="nav-item mb-2"><a style="color: #FFFFFF; text-shadow: 0 0 4px white;" href="#" class="nav-link p-0">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          <h5>Subscribe to our newsletter</h5>
+          <p>Monthly digest of what's new and exciting from us.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7038.641504238738!2d19.936141495924286!3d50.059036049917786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b0ddedd1555%3A0xc87dda730654a7b2!2zUnluZWsgR8WCw7N3bnkgMjgsIDMxLTAxMCBLcmFrw7N3LCBQb2xvbnlh!5e0!3m2!1str!2str!4v1704302998623!5m2!1str!2str" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© 2022 Company, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </div>
+  </footer>
+    <div id="container-stars">
+    <div id="stars"></div>
+    </div>
+      <div id="glow">
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+</div>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/node/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/node/@@popperjs/core/dist/umd/popper.min.js"></script>
+        
+        <script>
+          // Initialize the popover
+          var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+          var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl);
+          });
+        </script>
+        
+        <script>
+          const scrollToTopButton = document.getElementById('scrollToTop');
+
+          // Function to check the scroll position and toggle button visibility
+          function checkScrollPosition() {
+            if (window.scrollY > 100) { // You can adjust the scroll threshold as needed
+              scrollToTopButton.style.display = 'block';
+            } else {
+              scrollToTopButton.style.display = 'none';
+            }
+          }
+
+          // Add an event listener to the window to check scroll position
+          window.addEventListener('scroll', checkScrollPosition);
+
+          // Add a click event listener to scroll to the top when the button is clicked
+          scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        </script>
+
+        <script>
+            window.onload = function () {
+                const radioButtons = document.querySelectorAll(".radio-btn");
+                const images = document.querySelectorAll(".mySlides");
+
+                function hideAllImages() {
+                    images.forEach(img => {
+                        img.style.display = "none";
+                    });
+                }
+
+                function showSelectedImage() {
+                    const selectedRadioButton = document.querySelector(".radio-btn:checked");
+
+                    if (!selectedRadioButton) {
+                        // No radio button is checked, do nothing
+                        return;
+                    }
+
+                    const selectedColorName = selectedRadioButton.id;
+                    const selectedImage = document.getElementById(selectedColorName);
+
+                    hideAllImages();
+
+                    if (selectedImage) {
+                        selectedImage.style.display = "block";
+                    }
+                }
+
+                radioButtons.forEach(radio => {
+                    radio.addEventListener("change", showSelectedImage);
+                });
+
+                // Show the first image when the page loads
+                showSelectedImage();
+            };
+        </script>
+        <script>// Get all the star rating radio inputs
+            const starInputs = document.querySelectorAll('.rating-wrapper input[type="radio"]');
+
+            // Listen for changes in the star rating inputs
+            starInputs.forEach(input => {
+              input.addEventListener('change', () => {
+                // Get the selected rating value
+                const selectedRating = input.value;
+
+                // Trigger the form submission
+                const form = input.closest('form');
+
+                // Add the selected rating value to a hidden input field in the form
+                const ratingInput = document.createElement('input');
+                ratingInput.setAttribute('type', 'hidden');
+                ratingInput.setAttribute('name', 'rating');
+                ratingInput.setAttribute('value', selectedRating);
+                form.appendChild(ratingInput);
+
+                // Submit the form
+                form.submit();
+              });
+            });
+        </script>
+        <script>
+            const stars = document.querySelectorAll('.star');
+            const rangeBar = document.querySelector('.range-bar');
+
+            stars.forEach((star, index) => {
+              star.addEventListener('click', () => {
+                const rating = index + 1;
+                rangeBar.value = rating;
+                updateRangeBar();
+              });
+            });
+
+            rangeBar.addEventListener('input', () => {
+              updateRangeBar();
+            });
+
+            function updateRangeBar() {
+              const rating = rangeBar.value;
+              resetStars();
+              highlightStars(rating);
+            }
+
+            function resetStars() {
+              stars.forEach(star => {
+                star.classList.remove('selected');
+              });
+            }
+
+            function highlightStars(count) {
+              for (let i = 0; i < count; i++) {
+                stars[i].classList.add('selected');
+              }
+            }
+
+        </script>
+        <script>
+            // Show the modal when the alert message is present
+            $(document).ready(function () {
+                $('#alertModal').modal('show');
+            });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var $quantityField = $('.quantity-field');
+            var quantity = parseInt($quantityField.val());
+
+            $('.increase-quantity').click(function() {
+              quantity++;
+              $quantityField.val(quantity);
+            });
+
+            $('.decrease-quantity').click(function() {
+              if (quantity > 1) {
+                quantity--;
+                $quantityField.val(quantity);
+              }
+            });
+          });
+        </script>
+        
+
+        @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

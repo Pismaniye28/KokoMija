@@ -1,0 +1,81 @@
+@model ImgEditModel
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            // Function to toggle the visibility of the "Renk" div based on checkbox state
+            function toggleRenkVisibility(checkbox, divToToggle) {
+                if (checkbox.is(":checked")) {
+                    divToToggle.hide();
+                } else {
+                    divToToggle.show();
+                }
+            }
+
+            // Initial state on page load
+            var clearColorsCheckbox = $("#clearColorsCheckbox");
+            var renkDiv = $("#Renk");
+
+            toggleRenkVisibility(clearColorsCheckbox, renkDiv);
+
+            // Toggle visibility of the "Renk" div when the checkbox is clicked
+            clearColorsCheckbox.change(function () {
+                toggleRenkVisibility(clearColorsCheckbox, renkDiv);
+            });
+        });
+    </script>
+}
+<hr>
+<h1 class="h3">Upload</h1>
+<hr>     
+<div class="card text-center mb-3">
+  <img src="~/img/@Model.imageUrl" style="width: 18rem; margin-left: auto; margin-right: auto;" class="card-img-top img-fluid" alt="@Model.imageUrl">
+  <div class="card-body">
+    <h5 class="card-title h-5">@Model.imageUrl</h5>
+    <hr>
+    <div>
+         <form asp-controller="Admin" asp-action="ImageEdit" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-check form-check-inline">
+                    <div class="form-check mb-3">
+                        <input asp-for="xsmall" class="form-check-input" type="checkbox" id="XSmall">
+                        <label class="form-check-label" for="XSmall">XSmall</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input asp-for="Small" class="form-check-input" type="checkbox" id="Small">
+                        <label class="form-check-label" for="Small">Small</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input asp-for="Medium" class="form-check-input" type="checkbox" id="Medium">
+                        <label class="form-check-label" for="Medium">Medium</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input asp-for="Large" class="form-check-input" type="checkbox" id="Large">
+                        <label class="form-check-label" for="Large">Large</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input asp-for="xlarge" class="form-check-input" type="checkbox" id="XLarge">
+                        <label class="form-check-label" for="XLarge">XLarge</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input asp-for="ClearColors" class="form-check-input" type="checkbox" id="clearColorsCheckbox">
+                        <label class="form-check-label" for="clearColorsCheckbox">Clear Colors</label>
+                    </div>
+                    <div id="Renk">
+                    <div class="mb-3">
+                        <label asp-for="colorName" class="form-label">Color Name</label>
+                        <input asp-for="colorName" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="colorCode" class="form-label">Color Code</label>
+                        <input asp-for="colorCode" type="color" class="form-control">
+                    </div>
+                    </div>
+        <hr>
+        <button type="submit" class="form-group btn btn-outline-primary w-100">Submit</button>
+        </form>
+    </div>
+    <div class="card-footer m-1">
+    <p class="card-text">çok küçük resim yüklemeyiniz</p>
+    <p class="card-text"><small class="text-muted">merturkgil@gmail.com</small></p>
+    </div>
+  </div>

@@ -1,0 +1,385 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WebUi.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WebUi.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\css\\main.css.map",
+      "PackagePath": "staticwebassets\\css\\main.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\1.jpg",
+      "PackagePath": "staticwebassets\\img\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\2.jpg",
+      "PackagePath": "staticwebassets\\img\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\2d7b52f1-67d9-4707-ba09-9f33392fe27b.jpg",
+      "PackagePath": "staticwebassets\\img\\2d7b52f1-67d9-4707-ba09-9f33392fe27b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\3.jpg",
+      "PackagePath": "staticwebassets\\img\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\3c578196-e411-4990-a839-c1fdb6048d4d.jpeg",
+      "PackagePath": "staticwebassets\\img\\3c578196-e411-4990-a839-c1fdb6048d4d.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\3dba826d-5d6e-4a91-999e-4882d4a9741d.jpg",
+      "PackagePath": "staticwebassets\\img\\3dba826d-5d6e-4a91-999e-4882d4a9741d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\4.jpg",
+      "PackagePath": "staticwebassets\\img\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\4ebcab20-f13c-477b-a0b5-710912a1ecf5.jpg",
+      "PackagePath": "staticwebassets\\img\\4ebcab20-f13c-477b-a0b5-710912a1ecf5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\5.jpg",
+      "PackagePath": "staticwebassets\\img\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\6.jpg",
+      "PackagePath": "staticwebassets\\img\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\7.jpg",
+      "PackagePath": "staticwebassets\\img\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\Logo.png",
+      "PackagePath": "staticwebassets\\img\\Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\avatar(m).jpg",
+      "PackagePath": "staticwebassets\\img\\avatar(m).jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\avatar(w).jpg",
+      "PackagePath": "staticwebassets\\img\\avatar(w).jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\be097502-a09c-44bf-bbcf-7c46388116cb.jpg",
+      "PackagePath": "staticwebassets\\img\\be097502-a09c-44bf-bbcf-7c46388116cb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\eec3a5ce-c6a1-4275-93fd-d36282a221bd.jpg",
+      "PackagePath": "staticwebassets\\img\\eec3a5ce-c6a1-4275-93fd-d36282a221bd.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\km_black.png",
+      "PackagePath": "staticwebassets\\img\\km_black.png"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\km_black_preview_rev_1.png",
+      "PackagePath": "staticwebassets\\img\\km_black_preview_rev_1.png"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\km_white.png",
+      "PackagePath": "staticwebassets\\img\\km_white.png"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\profile.png",
+      "PackagePath": "staticwebassets\\img\\profile.png"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\slider1.png",
+      "PackagePath": "staticwebassets\\img\\slider1.png"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\slider2.png",
+      "PackagePath": "staticwebassets\\img\\slider2.png"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\img\\slider3.png",
+      "PackagePath": "staticwebassets\\img\\slider3.png"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\sass\\_bs-overrides.scss",
+      "PackagePath": "staticwebassets\\sass\\_bs-overrides.scss"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\sass\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\sass\\bootstrap.scss"
+    },
+    {
+      "Id": "C:\\Users\\mertu\\Desktop\\KokoMija\\WebUi\\wwwroot\\sass\\main.scss",
+      "PackagePath": "staticwebassets\\sass\\main.scss"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.WebUi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.WebUi.props",
+      "PackagePath": "build\\WebUi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.WebUi.props",
+      "PackagePath": "buildMultiTargeting\\WebUi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.WebUi.props",
+      "PackagePath": "buildTransitive\\WebUi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

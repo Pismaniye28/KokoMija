@@ -1,0 +1,391 @@
+@model ProductDetailModel
+@section Scripts
+{
+   <script src="~/node/fslightbox/index.js"></script>
+}
+@section Css{
+  <link rel="stylesheet" href="~/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .comments-section {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.comment, .reply {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment > h3, .reply > h4 {
+    margin: 0;
+    color: #333;
+}
+
+.comment > p, .reply > p {
+    margin: 5px 0;
+}
+
+.comment > small, .reply > small {
+    display: block;
+    color: #888;
+}
+
+.replies {
+    margin-left: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+form > textarea {
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 10px;
+}
+
+form > button {
+    padding: 5px 10px;
+}
+
+    </style>
+}
+       <section class="p-3 border border-top-0 border-dark border-opacity-50 border-2 rounded-5 rounded-top">
+            <div class="container-fluid">
+                <nav >
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item">
+                            <a class="btn btn-link p-0 mb-3" style="font-family: 'Agdasima', sans-serif;" href="/">Anasayfa</a>
+                        </li>
+                        <li style="font-family: 'Agdasima', sans-serif;" class="breadcrumb-item">
+                              @foreach (var item in Model.Categories)
+                                {
+                                    <a asp-controller="Home" asp-action="list" asp-route-category="@item.Url" class="btn btn-link p-0 mb-3"> <span style="font-family: 'Agdasima', sans-serif;">@item.Name</span> </a> 
+                                }  
+                        </li>
+                        <li class="breadcrumb-item active" style="font-family: 'Agdasima', sans-serif;">
+                            @Model.Product.ProductName
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <aside class="col-lg-5">
+                    <div class="gallery-wrap">
+                                 @{
+                                var iten = Model.Product.ProductImages;
+                                var sayii = iten.Count();
+                                var resim = iten.FirstOrDefault();
+                                if (sayii == 1)
+                                {     
+                                <div class="img-big-wrap">
+                                    <a href="~/img/@resim.Image.ImageUrl"  data-type="image" data-fslightbox="mygallery">
+                                    <img style="object-fit: contain;" src="~/img/@resim.Image.ImageUrl" class="img-thumbnail img-fluid" alt="@resim.Image.ColorName"/>
+                                    </a>
+                                </div>
+                                }
+                                if (sayii >= 2)
+                                {
+                                    <div class="img-big-wrap">
+                                     <a href="~/img/@resim.Image.ImageUrl"  data-type="image" data-fslightbox="mygallery">
+                                      <img src="~/img/@resim.Image.ImageUrl" alt="@resim.Image.ColorName" id="@resim.Image.ColorName" />
+                                     </a>
+                                    </div>
+                                    <div class="container-fluid text-center">
+                                        <div class="row row-cols-auto justify-content-center">
+                                            @foreach (var kit in Model.Product.ProductImages)
+                                            {
+                                                <div class="thumbs-wrap">
+                                                <a href="~/img/@kit.Image.ImageUrl" class="img-fluid" data-type="image" data-fslightbox="mygallery">
+                                                 <img class="d-inline col" style="object-fit: contain;" src="~/img/@kit.Image.ImageUrl" alt="@kit.Image.ColorName" id="@kit.Image.ColorName"/>
+                                                </a>
+                                                </div>
+                                            }
+                                    </div>
+                                </div>
+                                }
+                                if (sayii == 0)
+                                {
+                                    <div class="img-big-wrap img-thumbnail">
+                                    <img src="~/img/1.jpg" alt="">
+                                    </div>
+                                }
+                            }
+                      
+
+                       
+                     
+                    </div>
+                </aside>
+                <main class="col-lg-7">
+                    <article>
+                        <h4 class="title tex-dark" style="font-family: 'Agdasima', sans-serif;">
+                              @Model.Product.ProductName <hr>
+                        </h4>
+                        <div class="rating-wrap">
+                              <div class="rating-wrapper d-inline-flex">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <form asp-controller="Home" asp-action="RateProduct" asp-route-url="@Model.Product.Url" method="post">
+                                        <input type="hidden" name="productId" value="@Model.Product.ProductId">
+                                        @for (int i = 5; i >= 1; i--)
+                                        {
+                                            var isChecked = Model.Product.AverageRating.HasValue && Model.Product.AverageRating.Value == i;
+                                            <input type="radio" id="star-@i-@Model.Product.ProductId" name="rating-@Model.Product.ProductId" value="@i" @if (isChecked) { <text>checked</text> }>
+                                            <label for="star-@i-@Model.Product.ProductId" class="star-rating">
+                                                <i class="fas fa-star d-inline-block"></i>
+                                            </label>
+                                        }
+                                        <button type="submit" hidden>Submit Rating</button>
+                                    </form>
+                                }else{
+                                    <form asp-controller="Account" asp-action="Login" method="post">
+                                        @for (int i = 5; i >= 1; i--)
+                                        {
+                                            
+                                            var isChecked = Model.Product.AverageRating.HasValue && Model.Product.AverageRating.Value == i;
+                                            <input type="radio" id="star-@i-@Model.Product.ProductId" name="rating-@Model.Product.ProductId" value="@i" @if (isChecked) { <text>checked</text> }>
+                                            <label for="star-@i-@Model.Product.ProductId" class="star-rating">
+                                                <i class="fas fa-star d-inline-block"></i>
+                                            </label>
+                                            
+                                        }
+                                     </form>   
+                                }
+                            </div>
+                             @functions {
+                                            // Helper function to determine background color based on rating value
+                                            string GetRatingColor(double rating) {
+                                                if (rating >= 0 && rating <= 5) {
+                                                    var hue = 180;                  // Hue for green (consistent)
+                                                    var minLightness = 0;           // Lightness for black
+                                                    var maxLightness = 50;          // Lightness for green
+                                                    
+                                                    // Interpolate the lightness between black and green based on the rating
+                                                    var lightness = (rating / 5) * (maxLightness - minLightness) + minLightness;
+
+                                                    return $"hsl({hue}, 100%, {lightness}%)"; // Use HSL color representation
+                                                } else {
+                                                    return "black"; // Default to black if rating is out of range
+                                                }
+                                            }
+                                        }
+
+
+                            <span style="background-color:  @GetRatingColor(Model.Product.AverageRating.HasValue ? Model.Product.AverageRating.Value : 0);" class="btn btn-dark btn-sm position-relative">
+                                <b>@(Model.Product.AverageRating.HasValue ? Model.Product.AverageRating.Value.ToString("0.0") : "N/A")</b>
+                                <small class="position-absolute top-100 translate-middle badge rounded-pill bg-secondary">@Model.Product.RatingCount</small></span>
+                            </div>
+                       
+                           @if (Model.Product.IsInDiscount == true)
+                        {
+                            <p class="mt-1 mb-1 ml-1"><b class="badge bg-danger"><i class="fa-solid fa-tag fa-shake"></i> <span>Zniżka</span></b></p>
+                        }
+                        
+                       
+                        <div class="mt-5 mb-3 ml-3">
+                            <b class="price h5">     
+                                @if (Model.Product.IsInDiscount==true)
+                                {        
+                                   var totalPrice = @Model.Product.Price - ((@Model.Product.DiscountRate / 100.0) * @Model.Product.Price);
+                                        
+                                      <span  style="font-family: 'Agdasima', sans-serif;" class="price">@totalPrice</span>
+                                      <del class="price-old">@Model.Product.Price</del>
+                                }else{
+                              <span class="price"><i class="fas fa-lira-sign"></i>@Model.Product.Price</span>}</b>
+                              
+                        </div>
+                        <div>
+                            <span class="h3">Description</span>
+                            <hr>
+                        <div class="product-desc">
+                           <p class="p-3">@Html.Raw(Model.Product.Description)</p>
+                        </div>
+                       </div>
+
+                        <div class="buttons">
+                               <div class="btn-group">
+                                  
+                                @if (User.Identity.IsAuthenticated)
+                                {           
+                                    
+                                            <form asp-controller="Cart" asp-action="AddToCart" method="POST" class="w-75">
+                                                <input type="hidden" name="productId" value="@Model.Product.ProductId">
+                                                
+                                                <!-- Size Dropdown -->
+                                                <div class="form-group">
+                                                    <label for="size">Size:</label>
+                                                    <select class="form-control" id="size" name="size">
+                                                        <option value="XSmall">XSmall</option>
+                                                        <option value="Small">Small</option>
+                                                        <option value="Medium">Medium</option>
+                                                        <option value="Large">Large</option>
+                                                        <option value="XLarge">XLarge</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <!-- Color Dropdown (if you have a list of colors) -->
+                                                <div class="form-group">
+                                                    <label for="color">Color:</label>
+                                                    <select class="form-control" id="color" name="color">
+                                                        <option value="Red">Red</option>
+                                                        <option value="Blue">Blue</option>
+                                                        <option value="Green">Green</option>
+                                                        <!-- Add more color options as needed -->
+                                                    </select>
+                                                </div>
+                                                
+                                                <!-- Quantity Input -->
+                                                <div class="form-group">
+                                                    <label for="quantity">Quantity:</label>
+                                                    <input type="number" class="form-control" id="quantity" name="quantity" value="1" min="1">
+                                                </div>
+                                                
+                                                <!-- Add to Cart Button -->
+                                                <button type="submit" class="btn btn-outline-warning btn-sm">
+                                                    <span class="text-dark"><i class="fa-solid fa-basket-shopping fa-sm"></i> Add to Cart</span>
+                                                </button>
+                                            </form>
+
+                                     
+                                        <form asp-controller="Account" asp-action="AddFavorite" method="post">
+                                            <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+                                            <button type="submit" class="btn  btn-outline-danger btn-icon toggle-favorite">
+                                                @if (Model.IsFavorite)
+                                                {
+                                                    <i class="fa fa-trash"></i> 
+                                                }
+                                                else
+                                                {
+                                                    <i class="fa fa-heart"></i> 
+                                                }
+                                            </button>
+                                        </form>  
+                                    }else{
+                                    <a asp-controller="account" asp-action="Login" asp-route-id="@Model.Product.ProductId" class="btn btn-warning"> <i class="fas fa-cart-plus"></i>
+
+                                    Dodaj do koszyka
+                                    </a>
+                                    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-danger btn-icon btn-sm w-25">
+                                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                }
+                            
+                            </div>
+                        </div>
+                    </article>
+                </main>
+            
+        </div>
+    </section>
+    <section>
+        <div class="row">
+         <div class="col-md-12">                  
+            
+
+                 <div class="row mb-3">
+
+                    <!-- Comment Section -->
+                    <div class="comments-section">
+                                            <h4  style="font-family: 'Agdasima', sans-serif;" class="text-dark mb-3">
+                                                Comments
+                                            </h4>
+                                            <hr>
+                        @if (Model.Comments.Count == 0)
+                        {
+                            <p>No comments found.</p>
+                        }
+                        else
+                        {
+                            foreach (var comment in Model.Comments)
+                            {
+                                <div class="comment">
+                                    <h3>@comment.UserId</h3>
+                                    <p>@comment.Content</p>
+                                    <small>@comment.CreatedAt.ToString("g")</small>
+                                    @if (comment.ModerationStatus == ProductComment.CommentModerationStatus.Approved)
+                                    {
+                                        <div class="replies">
+                                            @foreach (var reply in comment.Replies)
+                                            {
+                                                <div class="reply">
+                                                    <h4>@reply.UserId</h4>
+                                                    <p>@reply.Content</p>
+                                                    <small>@reply.CreatedAt.ToString("g")</small>
+                                                </div>
+                                            }
+                                        </div>
+                                        <!-- Reply Form -->
+                                        <form method="post" action="@Url.Action("Reply", "Comments", new { id = comment.Id })">
+                                            <textarea name="Content" required></textarea>
+                                            <button type="submit">Reply</button>
+                                        </form>
+                                    }
+                                </div>
+                            }
+                        }
+                        <!-- Comment Form -->
+                        <form method="post" action="@Url.Action("Create", "Comments", new { productId = Model.Product.ProductId })">
+                            <textarea name="Content" required></textarea>
+                            <button type="submit">Post Comment</button>
+                        </form>
+                    </div>
+                    
+                 </div>
+           </div>
+        
+         <div class="col-md-12">
+            <h4 style="font-family: 'Agdasima', sans-serif;" class="">İlginizi Çekebilir</h4>
+            <hr>
+            <div class="row">
+                @foreach (var product in Model.HomePageRecomment)
+                {    
+
+                     <div class="col">
+                        @await Html.PartialAsync("_product", product )  
+                     </div>       
+                } 
+            </div> 
+            <h4 style="font-family: 'Agdasima', sans-serif;" class="">MostRatedProducts</h4>
+            <hr>
+            <div class="row">
+                @foreach (var product in Model.MostRatedProducts)
+                {    
+
+                     <div class="col">
+                        @await Html.PartialAsync("_product", product )  
+                     </div>       
+                } 
+            </div> 
+        </div>
+            <h4 style="font-family: 'Agdasima', sans-serif;" class="">MostFavProducts</h4>
+            <hr>
+            <div class="row">
+                @foreach (var product in Model.MostFavProducts)
+                {    
+
+                     <div class="col">
+                        @await Html.PartialAsync("_product", product )  
+                     </div>       
+                } 
+            </div> 
+        </div>
+        
+        </div>
+    </section>
+
+
+

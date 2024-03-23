@@ -1,0 +1,213 @@
+@model Product  
+
+
+    <figure class="card shadow clearfix">
+
+                            <div class="rating-wrap m-2"> 
+                                <div class="container-wrapper d-inline">  
+                                <div class="d-inline-flex align-items-center justify-content-start">
+                                    <div class="row justify-content-center">    
+                                    
+                                    <!-- star rating -->
+                                    <div class="rating-wrapper col">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                        <form asp-controller="Home" asp-action="RateProduct" asp-route-url="@Model.Url" method="post">
+                                                <input type="hidden" name="productId" value="@Model.ProductId">
+                                                @for (int i = 5; i >= 1; i--)
+                                                {
+                                                    var isChecked = Model.AverageRating.HasValue && Model.AverageRating.Value == i;
+                                                    <input type="radio" id="star-@i-@Model.ProductId" name="rating-@Model.ProductId" value="@i" @if (isChecked) { <text>checked</text> }>
+                                                    <label for="star-@i-@Model.ProductId" class="star-rating">
+                                                        <i class="fas fa-star d-inline-block"></i>
+                                                    </label>
+                                                }
+                                                <button type="submit" hidden>Submit Rating</button>
+                                            </form>
+                                        }else{
+                                            <form asp-controller="Account" asp-action="Login" method="post">
+                                            @for (int i = 5; i >= 1; i--)
+                                            {
+                                                var isChecked =  Model.AverageRating.Value == i;
+                                                
+                                                <input type="radio" id="star-@i-@Model.ProductId" name="@Model.ProductId" value="@i" @if (isChecked) { <text>checked</text> }>
+                                                <label for="star-@i-@Model.ProductId" class="star-rating">
+                                                    <i class="fas fa-star d-inline-block"></i>
+                                                </label>
+                                                
+                                            }    
+                                            </form>          
+                                        }
+                                    </div>
+                                        
+                                    </div>
+                                </div>
+                                </div> 
+                                @functions {
+                                    // Helper function to determine background color based on rating value
+                                    string GetRatingColor(double rating) {
+                                        if (rating >= 0 && rating <= 5) {
+                                            var hue = 180;                  // Hue for green (consistent)
+                                            var minLightness = 0;           // Lightness for black
+                                            var maxLightness = 50;          // Lightness for green
+                                            
+                                            // Interpolate the lightness between black and green based on the rating
+                                            var lightness = (rating / 5) * (maxLightness - minLightness) + minLightness;
+
+                                            return $"hsl({hue}, 100%, {lightness}%)"; // Use HSL color representation
+                                        } else {
+                                            return "black"; // Default to black if rating is out of range
+                                        }
+                                    }
+                                }
+                            <span style="background-color:  @GetRatingColor(Model.AverageRating.HasValue ? Model.AverageRating.Value : 0);" class="btn btn-dark btn-sm position-relative">
+                                <b>@(Model.AverageRating.HasValue ? Model.AverageRating.Value.ToString("0.0") : "N/A")</b>
+                                <small class="position-absolute top-100 translate-middle badge rounded-pill bg-secondary">@Model.RatingCount</small></span>
+                            </div>
+                                    <div class="badge d-inline">
+                                    @if(User.Identity.IsAuthenticated)
+                                        {
+                                            <form asp-controller="Account" asp-action="AddFavorite" class="d-inline" method="post">
+                                                <input type="hidden" name="productId" value="@Model.ProductId" />
+                                                <button type="submit" class="btn btn-outline-danger btn-icon toggle-favorite rounded-circle">
+                                                    
+                                                    @if (Model.IsFavorite==true)
+                                                    {
+                                                        <i class="fa fa-trash"></i> 
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="fa fa-heart"></i> 
+                                                    }
+                                                </button>
+                                            </form>  
+                                        }else{  
+                                                <a asp-controller="Account" asp-action="Login" class="btn btn-outline-danger btn-icon toggle-favorite rounded-circle">
+                                                <i class="fa fa-heart"></i>
+                                                </a>
+                                        }
+                                    </div>
+                            
+
+ 
+                           
+                        
+                            @{
+                                var iten = Model.ProductImages;
+                                var sayii = iten.Count();
+                                var resim = iten.FirstOrDefault();
+                                <!-- Product image section -->
+                                <div class="card-body img-fluid">
+                                 
+                                    @if (sayii == 1)
+                                    {
+                                        <!-- Display the primary image initially -->
+                                        <div class="img-wrap">
+                                            <a asp-controller="Home" asp-action="Details" asp-route-url="@Model.Url">
+                                                <img src="~/img/@resim.Image.ImageUrl" alt="@resim.Image.ColorName" class="img-fluid" />
+                                            </a>
+                                        </div>
+                                    }
+
+                                    @if (sayii >= 2)
+                                    {
+                                        <a asp-controller="Home" asp-action="Details" asp-route-url="@Model.Url">
+                                            <div id="carouselExampleSlidesOnly" class="carousel slide image-container img-wrap" data-bs-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    @for (var i = 0; i < Model.ProductImages.Count; i++)
+                                                    {
+                                                        var kit = Model.ProductImages[i];
+                                                        var isActive = i == 0 ? "active" : "";
+
+                                                        <div class="carousel-item @isActive">
+                                                            <img style="height: 220px;" src="~/img/@kit.Image.ImageUrl" class="mySlides img-fluid mx-auto" alt="@kit.Image.ColorName" id="@kit.Image.ColorName" />
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </a>
+                                    }
+                                            @if (sayii == 0)
+                                            {
+                                                <div class="img-wrap">
+                                                    <a asp-controller="Home" asp-action="Details" asp-route-url="@Model.Url">
+                                                        <img src="~/img/1.jpg" alt="EmptyProductImage" class="img-fluid" />
+                                                    </a>
+                                                </div>
+                                            }
+                              </div>
+                            }
+                            
+                         
+                      
+                        <figcaption class="info-wrap border-top">
+                            <div class="row">
+                                <div class="col-6">
+
+                                    <a asp-controller="Home" asp-action="Details" asp-route-url="@Model.Url" class="title text-truncate">
+                                        
+                                        @Model.ProductName
+                                    </a>
+                                    <div class="price-wrap">
+
+                                        @if (Model.IsInDiscount==true)
+                                        {     
+                                        <div class="position-absolute top-50 start-0" style="margin-top: 5rem;">
+                                            
+                                        <b class="badge rounded-start rounded-pill text-dark bg-danger position-static p-2">
+                                             <span class="h5">
+                                                <strong>
+                                               <u>
+                                            
+                            
+                                                @Model.DiscountRate
+                                                
+                                                <i class="fa-solid fa-percent fa-shake fa-2xs " style="color: #000000;"></i>
+                                                </u>
+                                                </strong>
+                                             </span>
+                                             
+                                
+                                        </b>
+                                        </div>
+                                        var totalPrice = @Model.Price - ((@Model.DiscountRate / 100.0) * @Model.Price);
+                                            <i class="fas fa-lira-sign"></i><span class="price">@totalPrice</span>
+                                            <del class="price-old">@Model.Price</del>
+                                        }else{
+                                    <span class="price"><i class="fas fa-lira-sign"></i>@Model.Price</span>
+                                    }
+                                    </div>
+                                </div>
+    <div class="col-sm-6">
+    @if (User.Identity.IsAuthenticated)
+    {
+        var colorNames = Model.ProductImages.Where(pi => pi.Image.ColorName != null).Select(pi => pi.Image.ColorName).Distinct();
+        var sizes = new List<string>();
+        if (Model.ProductImages.Any(pi => pi.Image.SizeXSmall)) { sizes.Add("XS"); }
+        if (Model.ProductImages.Any(pi => pi.Image.SizeSmall)) { sizes.Add("S"); }
+        if (Model.ProductImages.Any(pi => pi.Image.SizeMedium)) { sizes.Add("M"); }
+        if (Model.ProductImages.Any(pi => pi.Image.SizeLarge)) { sizes.Add("L"); }
+        if (Model.ProductImages.Any(pi => pi.Image.SizeXLarge)) { sizes.Add("XL"); }
+        <form asp-controller="Cart" asp-action="AddToCart" class="m-1" method="POST" class="w-100">  
+            <div class="input-group text-center">                             
+                    <button class="btn btn-dark w-100"><i class="fa-solid fa-bag-shopping"></i><span class="d-none d-xxl-inline">Add Cart</span></button>
+            </div> 
+
+            @* Model Başlangıç *@
+            <div class="modal-dialog modal-dialog-centered">
+            </div>
+            
+        </form>
+    }else{
+        <div class="row">
+            <a asp-controller="account" asp-action="Login" asp-route-url="@Model.Url" data-tooltip="@Model.Price" class="btn btn-dark">
+                <i class="fa-solid fa-bag-shopping"></i> <span class="ml-5"> Add Cart</span>
+            </a>
+        </div>
+        } 
+        </div> 
+     </div>                          
+    </figcaption>
+ </figure>
+
+

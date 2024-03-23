@@ -1,0 +1,37 @@
+<style>
+  #tus:hover{
+    background-color: lightblue;
+    opacity: 0.5;
+  }
+</style>
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade carousel-dark shadow" data-bs-ride="carousel">
+   <div class="carousel-indicators">
+      @foreach (var item in Model.Courser)
+      {
+         int xsemple = @item.CourserId;
+         int y = 1;
+         var sonuc = xsemple-y;
+        <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="@sonuc" class="active" aria-current="true" aria-label="Slide @item.CourserId"></button>
+      }
+  </div>
+  <div class="carousel-inner">
+        @foreach (var item in Model.Courser)
+        {
+          <div class="carousel-item active">
+            <a href="/products/discount"> <img src="~/img/@item.CourserImgUrl" class="d-block img-fluid"  alt="Discount"> </a>
+          </div>
+        } 
+    </div>
+      <button id="tus" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button id="tus" class="carousel-control-next " type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon " aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+  </div>
+
+
+

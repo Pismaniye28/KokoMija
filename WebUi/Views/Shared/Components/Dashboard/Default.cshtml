@@ -1,0 +1,32 @@
+@model Dictionary<string, (string Url, string Icon)>
+
+<ul class="nav nav-pills flex-column mb-auto">
+    @foreach (var category in Model)
+    {
+        
+        var isActive = category.Key == ViewBag.SelectedCategory ? "active" : "";
+        <li class="nav-item">
+        <a href="@category.Value.Url" class="nav-link link-light @isActive">
+            <i class="fas @category.Value.Icon"></i>
+            @category.Key
+           @if (category.Key == "Orders")
+            {
+                <span class="badge text-bg-warning"><i class="fa-regular fa-clock fa-spin fa-lg" style="color: #ff0000;"></i>@ViewBag.FreshOrders</span>
+                <span class="badge text-bg-success"><i class="fa-solid fa-boxes-packing fa-beat-fade"></i> @ViewBag.packingOrders</span>
+            }
+            @if(category.Key == "Customers")
+            {
+                <span class="badge text-bg-warning">@ViewBag.FreshOrders</span>
+            }
+              @if(category.Key == "Logs")
+            {
+                <span class="badge text-bg-warning">@ViewBag.FreshOrders</span>
+            }
+              @if(category.Key == "Dashboard")
+            {
+                <span class="badge text-bg-warning">@ViewBag.FreshOrders</span>
+            }
+        </a>
+        </li>
+    }
+</ul>

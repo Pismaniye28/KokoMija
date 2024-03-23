@@ -1,0 +1,71 @@
+@model RegisterModel
+<hr>
+<form asp-controller="Account" asp-action="Register" method="POST" class="needs-validation g-3">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="text-center">
+    <img class="mb-4" src="~/img/km_black.png" alt="km_black.png" width="200">
+    </div>
+    <h5>Account details</h5>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-floating mb-3">
+            <input asp-for="Email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+            <span asp-validation-for="Email" id="emailHelp" class="form-text"></span>
+            </div>
+        </div>  
+        <div class="col-md-4">
+                <div class="form-floating">
+                <input asp-for="Password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+                <span asp-validation-for="Password" id="passwordHelpInline" class="form-text"></span>
+                </div>
+        </div>
+            <div class="col-md-4">
+                <div class="form-floating">
+                <input asp-for="RePassword" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Same Password</label>
+                <span asp-validation-for="RePassword" id="passwordHelpInline" class="form-text"></span>
+                </div>
+        </div>
+    </div>
+    <h5>Personal details</h5>
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group">
+            <span class="input-group-text">First Name</span>
+            <span class="input-group-text">Last Name</span>
+            <input asp-for="FirstName" type="text" aria-label="First name" class="form-control">
+            <input asp-for="LastName" type="text" aria-label="Last name" class="form-control">
+            </div>
+            <span class="text-danger" asp-validation-for="FirstName"></span>
+            <span class="text-danger"  asp-validation-for="LastName"></span>
+        </div>
+          <div class="col-md-4">
+                <div class="input-group mb-3">
+                    <span asp-validation-for="UserName" class="input-group-text" id="inputGroupPrepend">@@</span>
+                    <input asp-for="UserName" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend">
+                </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+            <div class="d-grid gap-2 col-6 mx-auto">
+            <a asp-controller="account" asp-action="Login">Already have an account ?</a>                
+            <button class="btn btn-primary" type="submit">Sign Up!</button>
+            <a target="_blank" href="~/Account/ExternalLogin?provider=Google" class="btn btn-primary">Sign up with Google</a>
+            </div>
+    </div>
+
+</div>
+
+</form>
+
+
+@section Scripts{
+    <script src="~/node/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}

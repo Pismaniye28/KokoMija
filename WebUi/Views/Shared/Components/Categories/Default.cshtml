@@ -1,0 +1,13 @@
+@model List<Category>
+
+ <div class="list-group overflow-auto">
+     @foreach (var item in Model)
+    {
+        <a asp-controller="Home"
+        asp-action="List"
+        asp-route-category="@item.Url"
+        class="list-group-item list-group-item-action @(ViewBag.SelectedCategory == item.Url?"active":"")">
+            @item.Name
+        </a>
+    }
+</div> 

@@ -1,0 +1,53 @@
+@model UserDashboardViewModel
+@{
+    ViewData["Title"] = "Ulubione";
+}
+@section Css{
+  <link rel="stylesheet" href="~/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@700&display=swap" rel="stylesheet">
+}
+@section Scripts{
+    <script>
+    var scrollspy = new bootstrap.ScrollSpy(document.body, {
+        target: '#navbar-example'
+    });
+    </script>
+}
+
+
+<nav style="z-index: 3;" class="navbar navbar-expand navbar-light bg-light justify-content-center border rounded-bottom border-dark sticky-top border-top-0 ">
+    <ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link active" href="#Fav" aria-current="page" active >Favorite Products</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#Rated" aria-current="page">Rated Products</a>
+    </li>
+    </ul>
+</nav>
+
+<div class="container mt-5" >
+    <h2 class="mb-4">Favorite Products</h2>
+        <hr>
+        <div id="Fav" class="row">
+          
+            @foreach (var product in Model.FavoriteProducts)
+            {
+                <div class="col-md-3">
+                    @await Html.PartialAsync("_product",  product)
+                </div>
+            }
+        </div>    
+        <h2 class="mb-4 mt-4">Rated Products</h2>
+        <hr>
+        <div id="Rated" class="row">
+            @foreach (var pro in Model.RatedProducts)
+            {
+                <div class="col-md-3">
+                    @await Html.PartialAsync("_product",  pro)
+                </div>
+            }
+        </div>  
+</div>

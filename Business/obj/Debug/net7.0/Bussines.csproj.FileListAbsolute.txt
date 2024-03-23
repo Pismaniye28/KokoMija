@@ -1,0 +1,17 @@
+C:\Users\mertu\Desktop\KokoMija\Bussines\bin\Debug\net7.0\Bussines.deps.json
+C:\Users\mertu\Desktop\KokoMija\Bussines\bin\Debug\net7.0\Bussines.dll
+C:\Users\mertu\Desktop\KokoMija\Bussines\bin\Debug\net7.0\Bussines.pdb
+C:\Users\mertu\Desktop\KokoMija\Bussines\bin\Debug\net7.0\Data.dll
+C:\Users\mertu\Desktop\KokoMija\Bussines\bin\Debug\net7.0\Entity.dll
+C:\Users\mertu\Desktop\KokoMija\Bussines\bin\Debug\net7.0\Entity.pdb
+C:\Users\mertu\Desktop\KokoMija\Bussines\bin\Debug\net7.0\Data.pdb
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\Bussines.csproj.AssemblyReference.cache
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\Bussines.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\Bussines.AssemblyInfoInputs.cache
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\Bussines.AssemblyInfo.cs
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\Bussines.csproj.CoreCompileInputs.cache
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\Bussines.csproj.CopyComplete
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\Bussines.dll
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\refint\Bussines.dll
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\Bussines.pdb
+C:\Users\mertu\Desktop\KokoMija\Bussines\obj\Debug\net7.0\ref\Bussines.dll

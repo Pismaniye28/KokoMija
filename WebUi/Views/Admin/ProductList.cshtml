@@ -1,0 +1,145 @@
+@model ProductListViewModel
+@section Scripts
+{
+    <script src="/node/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/node/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+
+}
+@section Css
+{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+
+          <h1 class="h-2 m-3">
+         Admin Product
+         </h1>
+         <hr>
+         <a asp-controller="admin" asp-action="ProductCreate" class="btn btn-warning"><i class="fa-solid fa-cart-plus"></i>Add Product</a>     
+         <a asp-controller="admin" asp-action="CategoryCreate" class="btn btn-warning"><i class="fa-solid fa-cart-plus"></i>Add Category</a>    
+         <hr>           
+        <table data-page-length='25' id="myTable" class="table table-striped table-hover table-bordered mt-2">
+            <thead>
+                <tr>
+                    <td scope="col">
+                        Id
+                    </td>
+                    <td scope="col">
+                        Images
+                    </td>
+                    <td scope="col">
+                        Product Colors
+                    </td>
+                    <td scope="col">
+                        Name
+                    </td>
+                    <td scope="col">
+                        Price
+                    </td>
+                     <td scope="col">
+                        Discount
+                    </td>
+                    <td scope="col">
+                        Onaylı
+                    </td>
+                     <td scope="col">
+                        Anasayfa 
+                    </td>
+                    <td scope="col">
+                       
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Products.Count()>0)
+                {
+                       @foreach (var item in Model.Products)
+                    {
+                        <tr>
+                        <td class="text-center">
+                            @item.ProductId
+                        </td>
+                        <td class="text-center">
+                            @foreach (var img in item.ProductImages)
+                            {
+                            <img src="~/img/@img.Image.ImageUrl" alt="@img.Image.ImageId" style="width: 15%; height: auto;"> 
+                            }
+                        </td>
+                    
+                        <td class="text-center">
+                            @foreach (var i in item.ProductImages)
+                            {
+                                <span class="btn btn-outline-dark" style="border-color: @i.Image.ColorCode;" disabled>@i.Image.ColorName</span>
+                            }
+                        </td>
+                        <td class="text-center">
+                            @item.ProductName
+                        </td>
+                        <td class="text-center">
+                            @item.Price
+                        </td>
+                        <td class="text-center">
+                            @if (@item.DiscountRate==null)
+                            {
+                                <i class="fa-solid fa-tags fa-shake fa-lg"></i>
+                            }else{
+                                @item.DiscountRate
+                            }
+                        </td>
+                        <td class="text-center">
+                            @if (item.IsApproved)
+                            {
+                                <i class="fa-solid fa-circle-check text-success"></i>
+                            }else{
+                                <i class="fa-solid fa-circle-xmark text-danger"></i>
+                            }
+                        </td>
+                        <td class="text-center">
+                            @if (item.IsHome)
+                            {
+                                <i class="fa-solid fa-circle-check text-success"></i>
+                            }else{
+                                <i class="fa-solid fa-circle-xmark text-danger"></i>
+                            }
+                        </td>
+                        <td>
+                            
+                            <a asp-controller="Admin" asp-action="ProductEdit" asp-route-id="@item.ProductId" class="btn btn-primary btn-sm mr-2">
+                                <i class="fa-solid fa-pen-to-square"></i>Edit
+                            </a>
+
+                            <form asp-controller="Admin" asp-action="DeleteProduct" method="post" style="display: inline;">
+                                <input type="hidden" name="productId" value="@item.ProductId">
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i>Delete</button>
+                            </form>
+
+                        
+                        </td>
+                        </tr>
+                    }
+                }
+                else{
+                    <div class="alert alert-warning">
+                        <h3>NO PRODUCTS</h3>
+                    </div>
+                }
+             
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

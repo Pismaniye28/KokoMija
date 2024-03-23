@@ -1,0 +1,9 @@
+ @model List<Category>
+ <aside class="d-none d-lg-block col-lg-3">
+ <div class="list-group overflow-auto nav nav-pills flex-column flex-nowrap overflow-auto slider__nav">
+    @foreach (var category in Model)
+    {
+        <a href="#" class="list-group-item list-group-item-action">@category.Name</a>
+    }
+</div>
+</aside>

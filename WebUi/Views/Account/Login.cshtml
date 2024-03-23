@@ -1,0 +1,44 @@
+@model LoginModel
+<body class="text-center"> 
+  <hr>  
+<main class="form-signin w-50 m-auto">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    
+    
+  <form asp-controller="Account" asp-action="Login" method="post">
+    <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl">
+    <img class="mb-4" src="~/img/km_black.png" alt="km_black.png" width="200">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating ">
+      <input asp-for="Email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+      <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-floating">
+      <input asp-for="Password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+      <span asp-validation-for="Password"></span>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <a href="account/forgotpassword"> Forgot your password ?</a>
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+    </form>
+    <div class="text-center">or</div>
+    <a class="w-100 btn btn-lg btn-primary" asp-controller="account" asp-action="Register">Sign up</a>
+    <p class="mt-5 mb-3 text-muted">© 2022–2025</p>
+  
+</main>
+
+
+</body>
+
+
+@section Scripts{
+    <script src="~/node/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}

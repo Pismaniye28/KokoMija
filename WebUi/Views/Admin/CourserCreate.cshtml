@@ -1,0 +1,28 @@
+@model Courser
+
+
+<hr>
+<div class="card mb-3">
+  <img width="1200" height="365" class="bg-dark" alt="afis">
+  <div class="card-body">
+    <h5 class="card-title text-danger">Dikkate alınacak <b class="text-dark"> afiş özellikleri ! </b></h5>
+    <p class="card-text">1200x365 gibi en ve boy oranlarına sahip olmalıdır yoksa görünüşü bozabilir.</p>
+    <p class="card-text"><small class="text-muted">Yine de sayfa bozuluyorsa benimle iletişime geçin merturkgil@gmail.com</small></p>
+  </div>
+</div>
+<form asp-controller="Admin" asp-action="CourserCreate" method="POST" enctype="multipart/form-data">
+    <div>
+        <label class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input type="hidden" class="form-control" >
+            <img src="" width="80"/>
+            <input type="file" name="file" >
+            
+        </div>
+    </div>    
+          <div class="form-group row mt-2">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                </div>
+            </div>
+    </form>

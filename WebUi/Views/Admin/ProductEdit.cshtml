@@ -1,0 +1,173 @@
+@model ProductModel
+
+<h1 class="h3 mt-3">Edit Product</h1>
+<hr>
+<form asp-controller="Admin" asp-action="ProductEdit" method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+             <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+        
+            <input type="hidden" name="ProductId" value="@Model.ProductId">
+            <div class="form-group row mt-2">
+                <label asp-for="ProductName" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="ProductName">
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <label asp-for="Url" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Url">
+                    <span asp-validation-for="Url" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <label  asp-for="Description" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <textarea id="editor" class="form-control" asp-for="Description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <label  asp-for="Price" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Price">
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+            
+  <div class="form-group row mt-2">
+        <h1 class="h3">Images</h1>
+        <hr>
+        <div class="card-group">
+            @for (int i = 0; i < Model.AllImages.Count; i++)
+            {
+                <input type="hidden" name="AllImages[@i].ImageId" value="@Model.AllImages[@i].ImageId">
+                <input type="hidden" name="AllImages[@i].ImageUrl" value="@Model.AllImages[@i].ImageUrl">
+            }
+
+            <div class="row row-cols-1 row-cols-md-4 g-1">
+               @foreach (var item in Model.AllImages)
+                {
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox"
+                                    class="form-check-input"
+                                    name="selectedImages"
+                                    value="@item.ImageId"
+                                    id="image_@(item.ImageId)"
+                                    @(Model.SelectedImages.Any(i => i.ImageId == item.ImageId) ? "checked" : "")>
+                                <label class="custom-control-label" for="image_@(item.ImageId)">@item.ImageUrl</label>
+                            </div>
+                            <img src="~/img/@item.ImageUrl" class="card-img-top" alt="@item.ColorName">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.ImageId , @item.ColorCode</h5>
+                                <p class="card-text">@item.ImageUrl, @item.DateAdded</p>
+                                <p class="card-text"><small class="text-muted">@item.DateAdded</small></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    
+        </div>  
+                <button type="submit" class="btn btn-primary m-1 w-100">Save Product</button>
+        </div>
+        <div class="col-md-4">
+            <h1 class="h3">Categories</h1>
+            <hr>
+                @for (int i = 0; i < Model.AllCategories.Count; i++)
+                {
+                    <input type="hidden" name="AllCategories[@i].CategoryId" value="@Model.AllCategories[i].CategoryId">
+                    <input type="hidden" name="AllCategories[@i].Name" value="@Model.AllCategories[i].Name">
+                }
+
+                @foreach (var item in Model.AllCategories)
+                {
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox"
+                            class="form-check-input"
+                            name="categoryIds"
+                            value="@item.CategoryId"
+                            id="category_@(item.CategoryId)"
+                            @(Model.SelectedCategories.Any(i => i.CategoryId == item.CategoryId) ? "checked" : "")>
+                        <label class="custom-control-label" for="category_@(item.CategoryId)">@item.Name</label>
+                    </div>
+                }
+
+            <hr>
+            <div class="custom-control custom-checkbox">
+                <input asp-for="IsApproved" type="checkbox" class="form-check-input">
+                <label asp-for="IsApproved" class="custom-control-label"></label>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+                <input asp-for="IsHome" type="checkbox" class="form-check-input">
+                <label asp-for="IsHome" class="custom-control-label"></label>
+            </div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" asp-for="IsInDiscount" id="discountCheckbox">
+    <label class="form-check-label" asp-for="IsInDiscount">On Sale</label>
+</div>
+
+
+<div class="discount-range" style="display: @(Model.IsInDiscount ? "block" : "none");">
+    <label for="discountRate">Discount Rate:</label>
+    <input type="range" class="form-range" id="discountRate" name="DiscountRate" min="0" max="99" step="1">
+    <span id="discountValue">@Model.DiscountRate</span>
+</div>
+
+
+
+        </div>
+
+    </div>
+
+</form>
+
+
+@section Scripts{
+    <script src="~/node/ckeditor/ckeditor.js"></script>
+    <script src="~/node/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        CKEDITOR.replace('editor')
+    </script>
+    <script>
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+  <script>
+    const discountCheckbox = document.getElementById('discountCheckbox');
+    const discountRange = document.querySelector('.discount-range');
+    const discountRateInput = document.getElementById('discountRate');
+    const discountValue = document.getElementById('discountValue');
+
+    discountCheckbox.addEventListener('change', function () {
+        if (this.checked) {
+            discountRange.style.display = 'block';
+            updateDiscountValue();
+        } else {
+            discountRange.style.display = 'none';
+            discountValue.innerText = '0.00';
+        }
+    });
+
+    discountRateInput.addEventListener('input', updateDiscountValue);
+
+    function updateDiscountValue() {
+        discountValue.innerText = discountRateInput.value;
+    }
+</script>
+
+
+
+
+}

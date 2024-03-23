@@ -1,0 +1,104 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> _signInManager;
+@inject UserManager<User> _userManager;
+<header>
+<nav class="navbar navbar-expand-md bg-light d-block align-items-center text-center">
+  <div class="container">
+    <a class="navbar-brand" href="/"><img src="~/img/Logo.png" width="60" height="48" alt="KokoMija"class="img-fluid rounded-pill "></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+       <form action="/search" class="form-inline collapse navbar-collapse mt-2 justify-content-center w-100 mx-auto"  id="navbarTogglerDemo02">
+          <div class="input-group mb-0">
+          <input name="q" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+          <button type="submit" class="btn btn-outline-dark" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+      </form>
+      <ul class="navbar-nav mt-1 mb-lg-0 collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+        <li class="nav-item mx-1">
+          @if (User.Identity.IsAuthenticated)
+          {
+              <a class="nav-link active" 
+              asp-controller="Cart" 
+              asp-action="Index"
+              ><span><i class="fa-solid fa-basket-shopping fa-lg"></i>
+              Kosz
+              </span></a>
+          }else
+          {
+              <a class="nav-link active" aria-current="page" asp-action="Login" asp-controller="Account"><span><i class="fa-solid fa-basket-shopping fa-lg"></i>Kosz</span></a>
+          }
+        </li>
+        @if (User.Identity.IsAuthenticated)
+        {
+          <li class="nav-item mx-1">
+             <a aria-current="page" asp-controller="Account" asp-action="Favori" class="nav-link"><span style="color: Tomato;"><i class="fa-solid fa-heart fa-lg"></i>Faworyci</span></a>
+          </li>
+        }else{
+            <a class="nav-link active" aria-current="page" asp-action="Login" asp-controller="Account"><span><i style="color: Tomato;" class="fa-solid fa-heart fa-lg"></i>Faworyci</span></a>
+        }
+
+
+        @if (User.Identity.IsAuthenticated)
+        {
+          <div class="dropdown">
+          <button class="btn btn-outline-dark btn-sm rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              
+                @{
+                    var userId = _userManager.GetUserId(User);
+                    var user = await _userManager.FindByIdAsync(userId);
+                    var profileImg = user?.ProfileImg; 
+                }
+              @if (!string.IsNullOrEmpty(profileImg))
+              {
+                  <img class="rounded-circle" src="~/img/@profileImg" alt="@profileImg" width="32" height="32">
+              }
+              else
+              {
+                  <img class="rounded-circle" src="~/img/profile.png" alt="profile.png" width="32" height="32">
+              }
+                      
+            @User.Identity.Name
+          </button>
+          <ul class="dropdown-menu">
+            <li class="nav-item mx-1"><a class="dropdown-item" asp-controller="Account" asp-action="Manage" >Profile</a></li>
+            @if (User.IsInRole("Admin"))
+            {
+              <li class="nav-item mx-1"><a asp-controller="Admin" asp-action="ProductList" class="dropdown-item">Admin products</a></li>
+              <li class="nav-item mx-1"><a asp-controller="Admin" asp-action="CategoryList" class="dropdown-item">Admin categories</a></li>
+              <li class="nav-item mx-1"><a asp-controller="Admin" asp-action="CourserList" class="dropdown-item">Admin Slider List</a></li>
+              <li class="nav-item mx-1"><a asp-controller="Admin" asp-action="RoleList" class="dropdown-item">Roles</a></li>
+              <li class="nav-item mx-1"><a asp-controller="Admin" asp-action="UserList" class="dropdown-item">Users</a></li>
+              <li class="nav-item mx-1"><a asp-controller="Admin" asp-action="ImageList" class="dropdown-item">Image List</a></li>
+              <li class="nav-item mx-1"><a asp-controller="Admin" asp-action="Dashboard" class="dropdown-item"><i class="fa-solid fa-gauge-high"></i>Dashboard</a></li>
+            }
+            <li class="nav-item mx-1"><a class="dropdown-item" href="/account/logout">Log Out</a></li>
+          </ul>
+        </div>
+        }
+        else
+        {
+          <li class="nav-item mx-1">
+          <a asp-action="Login" asp-controller="Account" tabindex="0" data-bs-trigger="hover focus" title="Log-in/Sign-up"data-bs-content="Can you please login or sign up good sir UwU ?" data-toggle="popover" data-placement="bottom" data-content="Content" class="nav-link">
+            <span style="color: gray;"> 
+              <i class="fa-solid fa-ghost fa-lg fa-bounce"></i>
+              Account
+              </span>
+              </a>
+          </li>
+        }
+        
+        
+      </ul>
+     
+    
+  </div>
+  
+</nav>
+</header>
+
+
+ 
+
+

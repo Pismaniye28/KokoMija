@@ -1,0 +1,69 @@
+@model ImgListModel
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+
+}
+@section Css
+{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+}
+<a asp-controller="Admin" asp-action="ImageCreate" class="btn btn-outline-primary m-1">Create Image</a>
+<h1 class="h3">All Images</h1>
+<hr>
+<div id="imageTable" class="table-responsive">
+    <table id="myTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Color</th>
+                <th scope="col">Sizes</th>
+                <th scope="col">Date Added</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Images)
+            {
+                <tr>
+                    <td>@item.ImageId</td>
+                    <td><img src="~/img/@item.ImageUrl" style="width: 6.5rem; object-fit: contain;" alt="@item.ImageUrl">@item.ImageUrl</td>
+                    <td>
+                        <span style="background-color: @item.ColorCode;" class="btn btn-outline-primary">@item.ColorName</span>
+                    </td>
+                    <td>
+                       <span> SizeXSmall: @item.SizeXSmall </span> , 
+                       <span> SizeSmall: @item.SizeSmall </span>,
+                       <span> SizeMedium: @item.SizeMedium</span>,
+                        <span> SizeLarge : @item.SizeLarge </span>,
+                        <span> SizeXLarge: @item.SizeXLarge</span>
+                    </td>
+                    <td>@item.DateAdded</td>
+                    <td>
+                        <form asp-controller="Admin" asp-action="ImageDelete" method="post" style="display: inline;">
+                            <a asp-controller="Admin" asp-action="ImageEdit" asp-route-id="@item.ImageId" class="btn btn-primary btn-sm mr-2">
+                                <i class="fa-solid fa-pen-to-square"></i> Edit
+                            </a>
+                            <input type="hidden" name="imageId" value="@item.ImageId">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fa-solid fa-trash"></i> Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+ 
+

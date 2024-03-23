@@ -1,0 +1,70 @@
+@model DashOrderModel
+@{
+    Layout = "_Layout";
+}
+@section Css
+{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+}
+  
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+    
+}
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark rounded-4 col">
+        
+       @await Component.InvokeAsync("Dashboard")
+    </nav>
+    <div class="col-md-9">
+        <table data-page-length='25' id="myTable" class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Order Number</th>
+                  <th scope="col">Order Date</th>
+                  <th scope="col">Payment Type</th>
+                  <th scope="col">Order State</th>
+                  <th scope="col">Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                  @for (int i = 0; i < Model.AllOrders.Count; i++)
+                {
+                    var order = Model.AllOrders[i];
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>          @{
+                            // Define a maximum length for the OrderNumber
+                            var maxLength = 10; // Change this to your desired maximum length
+                            var orderNumber = order.OrderNumber;
+
+                            // Check if the OrderNumber is longer than the maximum length
+                            if (orderNumber.Length > maxLength)
+                            {
+                                // Truncate the OrderNumber and add ellipsis
+                                orderNumber = orderNumber.Substring(0, maxLength) + "...";
+                            }
+
+                            @orderNumber
+                        }</td>
+                        <td>@order.OrderDate.ToShortDateString()</td>
+                        <td>@order.PaymentType</td>
+                        <td>@order.OrderState</td>
+                        <td>@order.OrderItems</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+@model IEnumerable<IdentityRole>
+@using Microsoft.AspNetCore.Identity
+@using WebUi.Identity
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+    <h1>Role List </h1>
+         <hr>
+        <a class="btn btn-warning" asp-controller="Admin" asp-action="RoleCreate"  ><i class="fa-solid fa-cart-plus"></i>Create Role</a>
+        <a asp-controller="admin" asp-action="ProductCreate" class="btn btn-warning"><i class="fa-solid fa-cart-plus"></i>Add Product</a>     
+        <a asp-controller="admin" asp-action="CategoryCreate" class="btn btn-warning"><i class="fa-solid fa-cart-plus"></i>Add Category</a>               
+        <table  class="table table-hover table-bordered mt-2">
+            <thead>
+                <tr>
+                    <td class="col">
+                        Id
+                    </td>
+                    <td class="col">
+                        Role Name
+                    </td>
+                    <td class="col">
+                        Normalized Name
+                    </td>
+                     <td class="col">
+                        
+                    </td>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count()>0)
+                {
+                       @foreach (var item in Model)
+                {
+                     <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.NormalizedName
+                    </td>
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                            <a asp-action="RoleEdit" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-primary btn-sm w-100">
+                                <i class="fa-solid fa-pen-to-square"></i>Edit
+                            </a>
+                            </div>
+                            <div class="col">
+                                <form asp-action="RoleDelete" asp-controller="Admin" method="post">
+                                    <input type="hidden" name="roleName" value="@item.Name">
+                                    <button type="submit" class="btn btn-danger btn-sm w-100"><i class="fa-solid fa-trash"></i>Delete</button>
+                                </form>
+
+                            </div>
+                       </div>
+                    </td>
+                      </tr>
+                }
+                }
+                else{
+                    <div class="alert alert-warning">
+                        <h3>NO ROLES</h3>
+                    </div>
+                }
+             
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script src="/node/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/node/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
